@@ -1,0 +1,21 @@
+//Kth LARGEST ELEMENT 
+
+import java.util.PriorityQueue;
+
+class Solution1 
+{
+    public int findKthLargest(int[] nums, int k) 
+    {
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>(k);
+        for (int num : nums) 
+        {
+            minHeap.offer(num);
+            if (minHeap.size() > k) 
+            {
+                minHeap.poll();
+            }
+        }
+        return minHeap.peek(); 
+    }
+}
+
